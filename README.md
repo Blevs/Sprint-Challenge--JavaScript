@@ -30,13 +30,56 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+The biggest difference between `.forEach` and `.map` is their return values.
+They each apply a given callback function to each element of the array, but
+`.map` will return a new array with each element being the resultant value.
+`.forEach` returns `undefined`. This makes `.map` suited for data
+transformation, and `.forEach` useful for applying an action with side-effects.
+
 2. What is the difference between a function and a method?
+
+A function is a construct that takes arguments, performs some computation, and
+returns a value. A member is a type of function bound as an property of an
+object which implicitly binds `this` to the object it belongs to during
+execution.
 
 3. What is closure?
 
+A closure is an encapsulation of the lexical scope in which a function was
+declared. In plainer English, when a function is declared the environment
+enclosing it is captured and preserved so that the function can access variables
+and other constructs declared within that scope. In the same way that functions
+declared in the global scope can access global variables, this allows functions
+declared within other scopes to do the same, even when it appears that context
+no longer exists when the function is executed.
+
 4. Describe the four rules of the 'this' keyword.
 
+    1. Window/Global Object Binding   
+       In the global scope, `this` is automatically bound to the window or console
+       Object. `this` represents the Object in which our current execution is
+       taking place, so in the global scope it is the global object.
+    2. Implicit Binding   
+       Whenever a member function or attribute of an object is accessed with the
+       dot operator, `this` is implicitly bound to the Object preceding the dot.
+       This allows us to access the Object within member functions without
+       explicitly passing it as an argument.
+    3. New Binding   
+       When instantiating a new object using a constructor function `this` is
+       bound to the new instance of the object, allow us to assign and reference
+       that instance's attributes within the constructor.
+    4. Explicit Binding   
+       Using the special methods `.call` and `.apply` we can override the default
+       binding of `this` with an explicit value of our choosing. This enables us
+       to use the member functions of one object in the context of another.
+
 5. Why do we need super() in an extended class?
+
+`super()` is called in an extended class as syntactic sugar for
+`Parent.call(this, arguments)`. It allows us to call the parent objects
+constructor on the newly instantiated object with arguments of our choosing.
+Most commonly, this allows us to automatically assign the object properties of
+the parent object automatically.
 
 ## Project Set up
 
